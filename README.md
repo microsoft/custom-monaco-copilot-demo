@@ -4,7 +4,7 @@
 
 <br />
 <div align="center">
-  <img src="https://raw.githubusercontent.com/microsoft/custom-monaco-copilot-demo/main/demo.png"> 
+  <img src="https://github.com/microsoft/custom-monaco-copilot-demo/blob/main/demo.png"> 
 
   <h1 align="center">Custom Copilot for Monaco (Sample Code)</h1>
   <p align="center">
