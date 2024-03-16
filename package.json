@@ -1,0 +1,32 @@
+{
+    "name": "xml-editor-project",
+    "version": "1.0.0",
+    "description": "A modern JavaScript project for XML editing with chat functionality.",
+    "main": "app.js",
+    "scripts": {
+        "start": "webpack serve --mode development --open",
+        "build": "webpack --mode production"
+    },
+    "dependencies": {
+        "axios": "^1.6.7",
+        "monaco-editor": "^0.21.2",
+        "react": "^18.2.0",
+        "react-dom": "^18.2.0",
+        "react-markdown": "^9.0.1",
+        "react-syntax-highlighter": "^15.5.0"
+    },
+    "devDependencies": {
+        "@babel/core": "^7.14.0",
+        "@babel/preset-env": "^7.14.1",
+        "@babel/preset-react": "^7.13.13",
+        "babel-loader": "^8.2.2",
+        "css-loader": "^6.10.0",
+        "eslint": "^7.25.0",
+        "eslint-plugin-react": "^7.23.2",
+        "html-webpack-plugin": "^5.6.0",
+        "style-loader": "^3.3.4",
+        "webpack": "^5.36.2",
+        "webpack-cli": "^4.6.0",
+        "webpack-dev-server": "^3.11.2"
+    }
+}
