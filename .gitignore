@@ -50,3 +50,5 @@ Thumbs.db
 
 # Optional: npm lock file (uncomment if you prefer not to include lock file updates in your commits)
 # package-lock.json
+
+test-results

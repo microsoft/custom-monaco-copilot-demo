@@ -32,9 +32,11 @@ module.exports = {
     ],
   },
   devServer: {
-    contentBase: './dist',
+    static: {
+      directory: path.join(__dirname, 'dist'),
+    },
     historyApiFallback: true,
     compress: true,
-    port: 8080,
+    port: 3000,
   },
 };
