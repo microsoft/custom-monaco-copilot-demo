@@ -4,29 +4,36 @@
     "description": "A modern JavaScript project for XML editing with chat functionality.",
     "main": "app.js",
     "scripts": {
-        "start": "webpack serve --mode development --open",
-        "build": "webpack --mode production"
+        "start": "webpack serve --mode development",
+        "build": "webpack --mode production",
+        "test": "playwright test",
+        "test:e2e": "start-server-and-test start http-get://localhost:3000 test",
+        "update-check": "ncu",
+        "update": "ncu -u && npm install"
     },
     "dependencies": {
-        "axios": "^1.6.7",
-        "monaco-editor": "^0.21.2",
-        "react": "^18.2.0",
-        "react-dom": "^18.2.0",
-        "react-markdown": "^9.0.1",
-        "react-syntax-highlighter": "^15.5.0"
+        "axios": "^1.7.9",
+        "monaco-editor": "^0.52.2",
+        "react": "^19.0.0",
+        "react-dom": "^19.0.0",
+        "react-markdown": "^9.0.3",
+        "react-syntax-highlighter": "^15.6.1"
     },
     "devDependencies": {
-        "@babel/core": "^7.14.0",
-        "@babel/preset-env": "^7.14.1",
-        "@babel/preset-react": "^7.13.13",
-        "babel-loader": "^8.2.2",
-        "css-loader": "^6.10.0",
-        "eslint": "^7.25.0",
-        "eslint-plugin-react": "^7.23.2",
-        "html-webpack-plugin": "^5.6.0",
-        "style-loader": "^3.3.4",
-        "webpack": "^5.36.2",
-        "webpack-cli": "^4.6.0",
-        "webpack-dev-server": "^3.11.2"
+        "@babel/core": "^7.26.7",
+        "@babel/preset-env": "^7.26.7",
+        "@babel/preset-react": "^7.26.3",
+        "@playwright/test": "^1.50.1",
+        "babel-loader": "^9.2.1",
+        "css-loader": "^7.1.2",
+        "eslint": "^9.19.0",
+        "eslint-plugin-react": "^7.37.4",
+        "html-webpack-plugin": "^5.6.3",
+        "npm-check-updates": "^17.1.14",
+        "start-server-and-test": "^2.0.10",
+        "style-loader": "^4.0.0",
+        "webpack": "^5.97.1",
+        "webpack-cli": "^6.0.1",
+        "webpack-dev-server": "^5.2.0"
     }
 }

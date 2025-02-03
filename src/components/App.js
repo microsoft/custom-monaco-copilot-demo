@@ -79,7 +79,7 @@ const App = () => {
     let headers = {
       'Content-Type': 'application/json',
     };
-  
+
     if (apiUrl !== 'https://api.openai.com/v1/chat/completions') {
       headers['api-key'] = apiKey;
     } else {
@@ -109,42 +109,61 @@ const App = () => {
       }),
     });
 
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+
     const reader = response.body.getReader();
     const decoder = new TextDecoder('utf-8');
+    let buffer = '';
     let botResponse = '';
 
-    while (true) {
-      const { value, done } = await reader.read();
-      if (done) break;
+    try {
+      while (true) {
+        const { value, done } = await reader.read();
+        if (done) break;
 
-      const chunk = decoder.decode(value);
-      const lines = chunk.split('\n');
+        buffer += decoder.decode(value, { stream: true });
+        const lines = buffer.split('\n');
+        buffer = lines.pop() || '';
 
-      for (const line of lines) {
-        if (line.startsWith('data:')) {
-          const data = JSON.parse(line.slice(5));
-          if (data.choices && data.choices.length > 0) {
-            const delta = data.choices[0].delta;
-            if (delta.content) {
-              botResponse += delta.content;
-              setMessages((prevMessages) => {
-                const lastMessage = prevMessages[prevMessages.length - 1];
-                if (lastMessage.type === 'bot') {
-                  return [
-                    ...prevMessages.slice(0, -1),
-                    { type: 'bot', text: lastMessage.text + delta.content },
-                  ];
-                } else {
-                  return [...prevMessages, { type: 'bot', text: delta.content }];
+        for (const line of lines) {
+          const trimmedLine = line.trim();
+          if (trimmedLine === '') continue;
+          if (trimmedLine === 'data: [DONE]') continue;
+          
+          if (trimmedLine.startsWith('data: ')) {
+            try {
+              const data = JSON.parse(trimmedLine.slice(6));
+              if (data.choices && data.choices.length > 0) {
+                const delta = data.choices[0].delta;
+                if (delta.content) {
+                  botResponse += delta.content;
+                  setMessages((prevMessages) => {
+                    const lastMessage = prevMessages[prevMessages.length - 1];
+                    if (lastMessage.type === 'bot') {
+                      return [
+                        ...prevMessages.slice(0, -1),
+                        { type: 'bot', text: lastMessage.text + delta.content },
+                      ];
+                    } else {
+                      return [...prevMessages, { type: 'bot', text: delta.content }];
+                    }
+                  });
                 }
-              });
+              }
+            } catch (error) {
+              console.error('Error parsing JSON:', error);
+              continue;
             }
           }
         }
       }
+    } catch (error) {
+      console.error('Error reading stream:', error);
+    } finally {
+      setIsStreaming(false);
     }
-
-    setIsStreaming(false);
   };
 
   return (

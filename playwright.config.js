@@ -3,10 +3,24 @@
  *  Licensed under the MIT License. See LICENSE in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 
-import React from 'react';
-import { createRoot } from 'react-dom/client';
-import App from './components/App';
-import './styles/main.css';
+import { defineConfig } from '@playwright/test';
 
-const root = createRoot(document.getElementById('root'));
-root.render(<App />);
+export default defineConfig({
+  testDir: './tests',
+  timeout: 60000,
+  expect: {
+    timeout: 15000,
+  },
+  use: {
+    baseURL: 'http://localhost:3000',
+    trace: 'on-first-retry',
+  },
+  projects: [
+    {
+      name: 'chromium',
+      use: {
+        browserName: 'chromium',
+      },
+    }
+  ],
+});
