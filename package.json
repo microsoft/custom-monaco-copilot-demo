@@ -12,7 +12,7 @@
         "update": "ncu -u && npm install"
     },
     "dependencies": {
-        "axios": "^1.7.9",
+        "axios": "^1.13.5",
         "monaco-editor": "^0.52.2",
         "react": "^19.0.0",
         "react-dom": "^19.0.0",
