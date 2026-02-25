@@ -11,6 +11,18 @@ export default defineConfig({
   expect: {
     timeout: 15000,
   },
+  /* Only run the mocked tests by default */
+  testMatch: [
+    'app-loading.test.js',
+    'api-key-config.test.js',
+    'chat-mocked.test.js',
+    'editor-mocked.test.js',
+    'code-suggestions-mocked.test.js',
+    'integration-mocked.test.js',
+    'error-handling.test.js',
+    'ui-layout.test.js',
+    'xml-validation.test.js',
+  ],
   use: {
     baseURL: 'http://localhost:3000',
     trace: 'on-first-retry',

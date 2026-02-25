@@ -45,7 +45,7 @@ class SyntaxHighlighter {
                 root: [
                     [/<\/?[a-zA-Z_-]+>/, "tag"],
                     [/([a-zA-Z0-9_-]+)=/, "attribute"],
-                    [/\"[^\"]*\"/, "string"],
+                    [/"[^"]*"/, "string"],
                     [/<inbound>/, "custom-inbound"],
                     [/<backend>/, "custom-backend"],
                     [/<outbound>/, "custom-outbound"],

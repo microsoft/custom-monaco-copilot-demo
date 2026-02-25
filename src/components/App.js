@@ -116,7 +116,6 @@ const App = () => {
     const reader = response.body.getReader();
     const decoder = new TextDecoder('utf-8');
     let buffer = '';
-    let botResponse = '';
 
     try {
       while (true) {
@@ -138,7 +137,6 @@ const App = () => {
               if (data.choices && data.choices.length > 0) {
                 const delta = data.choices[0].delta;
                 if (delta.content) {
-                  botResponse += delta.content;
                   setMessages((prevMessages) => {
                     const lastMessage = prevMessages[prevMessages.length - 1];
                     if (lastMessage.type === 'bot') {
