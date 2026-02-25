@@ -8,32 +8,34 @@
         "build": "webpack --mode production",
         "test": "playwright test",
         "test:e2e": "start-server-and-test start http-get://localhost:3000 test",
+        "lint": "eslint src/",
         "update-check": "ncu",
         "update": "ncu -u && npm install"
     },
     "dependencies": {
-        "axios": "^1.7.9",
-        "monaco-editor": "^0.52.2",
-        "react": "^19.0.0",
-        "react-dom": "^19.0.0",
-        "react-markdown": "^9.0.3",
-        "react-syntax-highlighter": "^15.6.1"
+        "axios": "^1.13.5",
+        "monaco-editor": "^0.55.1",
+        "react": "^19.2.4",
+        "react-dom": "^19.2.4",
+        "react-markdown": "^10.1.0",
+        "react-syntax-highlighter": "^16.1.0"
     },
     "devDependencies": {
-        "@babel/core": "^7.26.7",
-        "@babel/preset-env": "^7.26.7",
-        "@babel/preset-react": "^7.26.3",
-        "@playwright/test": "^1.50.1",
-        "babel-loader": "^9.2.1",
-        "css-loader": "^7.1.2",
-        "eslint": "^9.19.0",
-        "eslint-plugin-react": "^7.37.4",
-        "html-webpack-plugin": "^5.6.3",
-        "npm-check-updates": "^17.1.14",
-        "start-server-and-test": "^2.0.10",
+        "@babel/core": "^7.29.0",
+        "@babel/preset-env": "^7.29.0",
+        "@babel/preset-react": "^7.28.5",
+        "@eslint/js": "^9.39.3",
+        "@playwright/test": "^1.58.2",
+        "babel-loader": "^10.0.0",
+        "css-loader": "^7.1.4",
+        "eslint": "^9.30.0",
+        "eslint-plugin-react": "^7.37.5",
+        "html-webpack-plugin": "^5.6.6",
+        "npm-check-updates": "^19.5.0",
+        "start-server-and-test": "^2.1.5",
         "style-loader": "^4.0.0",
-        "webpack": "^5.97.1",
+        "webpack": "^5.105.2",
         "webpack-cli": "^6.0.1",
-        "webpack-dev-server": "^5.2.0"
+        "webpack-dev-server": "^5.2.3"
     }
 }

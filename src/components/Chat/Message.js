@@ -28,7 +28,7 @@ const InlineCode = ({ className, children, ...props }) => (
   </code>
 );
 
-const CodeComponent = ({ node, inline, className, children, onCodeCopy, ...props }) => {
+const CodeComponent = ({ inline, className, children, onCodeCopy, ...props }) => {
   const languageMatch = /language-(\w+)/.exec(className || '');
   if (!inline && languageMatch) {
     return <CodeBlock language={languageMatch[1]} onCodeCopy={onCodeCopy} {...props}>{children}</CodeBlock>;
