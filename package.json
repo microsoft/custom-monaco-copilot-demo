@@ -21,12 +21,12 @@
         "react-syntax-highlighter": "^16.1.0"
     },
     "devDependencies": {
-        "@babel/core": "^7.29.0",
-        "@babel/preset-env": "^7.29.0",
-        "@babel/preset-react": "^7.28.5",
+        "@babel/core": "^8.0.1",
+        "@babel/preset-env": "^8.0.2",
+        "@babel/preset-react": "^8.0.1",
         "@eslint/js": "^9.39.3",
         "@playwright/test": "^1.58.2",
-        "babel-loader": "^10.0.0",
+        "babel-loader": "^10.1.1",
         "css-loader": "^7.1.4",
         "eslint": "^9.30.0",
         "eslint-plugin-react": "^7.37.5",
